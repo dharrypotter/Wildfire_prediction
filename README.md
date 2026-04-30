@@ -8,7 +8,6 @@ Unlike standard classification, this setup includes censored data, where some fi
 
 🧠 Problem Formulation
 
-Explain simply:
 
 Each wildfire = one sample
 Target:
@@ -20,22 +19,23 @@ event indicator (E)
 
 📊 Approach
 
-Break into steps:
 
-1. Feature Engineering
-Distance-based risk metrics
-Fire spread velocity features
-Growth × direction alignment interactions
-Log-transformed spatial distances
+
+1. Exploratory Data Analysis (Visualisation) : to see which features correlate to outcome
+   
+2.Feature Engineering
+Engineered couple of features like 
+a)Distance-based risk metrics
+b) Fire spread velocity features
+c) Growth × direction alignment interactions
+d) Log-transformed spatial distances
 
 3. Survival Model
 Model: GradientBoostingSurvivalAnalysis (GBSA)
 Objective: estimate survival function S(t)
 
-5. Prediction Strategy
-
+4. Prediction Strategy
 Convert survival function → event probability:
-
 𝑃(𝑇≤𝑡) = 1 − 𝑆(𝑡)
 P(T≤t)=1−S(t)
 Evaluate at fixed horizons: 12h, 24h, 48h, 72h
